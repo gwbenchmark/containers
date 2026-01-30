@@ -21,7 +21,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
 # Copy project files
-COPY pyproject.2g.toml pyproject.toml
+COPY pyproject-2g.toml pyproject.toml
 COPY README.md ./
 
 # Verify uv is installed
