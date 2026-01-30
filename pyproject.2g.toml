@@ -1,0 +1,13 @@
+[project]
+name = "gwbenchmark2g-environment"
+version = "0.1.0a1"
+description = "Environment for generating 2g datasets"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "gwbenchmark2g",
+]
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
