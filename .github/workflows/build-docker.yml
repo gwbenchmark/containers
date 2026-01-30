@@ -22,7 +22,8 @@ jobs:
       matrix:
         variant:
           - name: 2g
-            dockerfile: Dockerfile-2g
+            dockerfile: Dockerfile.2g
+            suffix: 2g
     
     steps:
       - name: Checkout code
