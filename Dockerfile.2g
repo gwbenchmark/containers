@@ -32,8 +32,7 @@ RUN uv --version
 ENV GIT_SSL_NO_VERIFY=1
 # Install from GitHub repository directly
 # This should be replaced with a specific version or commit
-#RUN uv pip install --system .
-RUN uv pip install --system git+https://github.com/gwbenchmark/2gbenchmark.git
+RUN uv pip install --system .
 ENV GIT_SSL_NO_VERIFY=
 
 # Set the default command to show Python and uv versions
