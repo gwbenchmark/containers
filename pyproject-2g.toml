@@ -5,7 +5,7 @@ description = "Environment for generating 2g datasets"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
-    "gwbenchmark2g@git+https://github.com/gwbenchmark/2gbenchmark.git@a47949395b29da2fc31afb4727ae30cd5c856a01
+    "gwbenchmark2g@git+https://github.com/gwbenchmark/2gbenchmark.git@a47949395b29da2fc31afb4727ae30cd5c856a01"
 ]
 
 [build-system]
