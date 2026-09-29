@@ -1,0 +1,24 @@
+# Image for the 2g reference posteriors (bilby_pipe parameter estimation).
+#
+# Built on the exact published 2g image (pinned by digest), so the packages
+# match the ones used to generate the data. It only adds bilby_pipe and its
+# dependencies, and lowers numpy from 2.5.1 to 2.3.5: bilby 2.7.1 fails when
+# sampling with numpy 2.5, and bilby_pipe requires numpy<2.4.
+# To follow a new 2g image, update the tag/digest here and constraints-2g-pe.txt.
+FROM ghcr.io/gwbenchmark/containers:main-1d70c5b-2g@sha256:a68256d097e324a046f6e7b965189045ab1f95b1ba446291fc1cc6f2c201b6eb
+
+# Apptainer mounts the user's home directory and passes the host environment
+# through, so without these Python would also load packages from the user's
+# ~/.local or PYTHONPATH (e.g. a different numpy) ahead of the image's.
+ENV PYTHONNOUSERSITE=1 \
+    PYTHONPATH=
+
+COPY constraints-2g-pe.txt /opt/constraints-2g-pe.txt
+
+# Every package, including those already in the 2g image, is held to the
+# versions in constraints-2g-pe.txt; the check fails the build on any conflict.
+RUN uv pip install --system --constraint /opt/constraints-2g-pe.txt \
+        bilby_pipe==1.10.1 \
+    && uv pip check --system
+
+CMD ["python", "-c", "import bilby, bilby_pipe, numpy; print('bilby', bilby.__version__, 'bilby_pipe', bilby_pipe.__version__, 'numpy', numpy.__version__)"]
