@@ -1,0 +1,14 @@
+[project]
+name = "gwbenchmark2g-pe-environment"
+version = "0.1.0a2"
+description = "Environment for running 2g reference posteriors"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "gwbenchmark2g@git+https://github.com/gwbenchmark/2gbenchmark.git@8eab6dbb832c151a1fbec8b8d2f091cdbc741454",
+    "bilby_pipe==1.10.1"
+]
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"

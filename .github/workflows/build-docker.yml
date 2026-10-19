@@ -24,6 +24,9 @@ jobs:
           - name: 2g
             dockerfile: Dockerfile.2g
             suffix: 2g
+          - name: 2g-pe
+            dockerfile: Dockerfile.2g-pe
+            suffix: 2g-pe
     
     steps:
       - name: Checkout code
